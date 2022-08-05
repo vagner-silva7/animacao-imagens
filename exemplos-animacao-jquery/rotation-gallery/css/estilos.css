@@ -1,0 +1,89 @@
+/* Alteração do box model */
+*,*::after, *::before { box-sizing: border-box;}
+
+/* Reset de elementos, padrão do navegador */
+body, h1, h2, h3, p, figure {
+    margin:0;
+    padding: 0;
+}
+
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    min-height: 100%;
+}
+
+.titulo {
+    position: relative;
+    top: 20px; 
+    bottom: 500px;
+    width: 50px; 
+    height: 200px; 
+}
+
+.format_texto {
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    top: 20px;
+    width: 200px; 
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+}
+
+.format_botao {
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    top: 100px;
+    width: 200px; 
+    font-size: 1rem;
+    height: 40px;
+    background-color: red;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+}
+
+.box{
+    position: relative;
+    top: 400px; /* 230px */
+    width: 200px; /* 200px */
+    height: 200px; /* 200px */
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate{
+        0% {
+            transform: perspective(
+                1600px)
+            rotateY(0deg);    
+        }
+        100% {
+            transform: perspective(
+                1600px)
+            rotateY(360deg)
+        }
+}
+
+.box span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform:rotateY(calc(var(--i) * 45deg))translateZ(400px);
+}
+
+.box span img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, #0004);
+}
+
